@@ -60,4 +60,12 @@ public class Facture {
     public void setClient(Client client) {
         this.client = client;
     }
+
+    public Collection<LigneFacture> getLignesFacture() {
+        return lignesFacture;
+    }
+
+    public void setLignesFacture(Collection<LigneFacture> lignesFacture) {
+        this.lignesFacture = lignesFacture;
+    }
 }
