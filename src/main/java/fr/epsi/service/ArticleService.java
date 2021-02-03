@@ -1,31 +1,23 @@
 package fr.epsi.service;
 
+import fr.epsi.dao.ArticleDao;
+import fr.epsi.dao.IArticleDao;
 import fr.epsi.dto.ArticleDto;
-import fr.epsi.dto.ClientDto;
 import fr.epsi.entite.Article;
 
-import javax.annotation.Resource;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.ejb.TransactionManagement;
-import javax.ejb.TransactionManagementType;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.UserTransaction;
 import java.util.List;
 
 @Stateless
-@TransactionManagement(TransactionManagementType.BEAN)
 public class ArticleService implements IArticleService {
 
-    @PersistenceContext(unitName = "pezzzPU")
-    EntityManager entityManager;
-
-    @Resource
-    UserTransaction userTransaction;
+    @EJB
+    IArticleDao articleDao = new ArticleDao();
 
     @Override
     public List<Article> findAllArticles() {
-        List<Article> articles = entityManager.createQuery("Select a from Article a").getResultList();
+        List<Article> articles = this.articleDao.findAll();
         return articles;
     }
 
@@ -36,12 +28,6 @@ public class ArticleService implements IArticleService {
         article.setNom(articleDto.getNom());
         article.setPrix(articleDto.getPrix());
 
-        try{
-            userTransaction.begin();
-            entityManager.persist(article);
-            userTransaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.articleDao.create(article);
     }
 }

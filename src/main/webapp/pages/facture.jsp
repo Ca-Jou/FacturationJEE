@@ -14,12 +14,12 @@
     <p>Numero de facture : ${facture.numero}</p>
 </div>
 
-<div>
+<div style="text-align: right">
     <p>${facture.client.nom}</p>
     <p>${facture.client.adresse}</p>
 </div>
 
-<div>
+<table>
     <thead>
         <tr>
             <th>Article</th>
@@ -36,9 +36,9 @@
             </tr>
         </c:forEach>
     </tbody>
-</div>
+</table>
 
-<div>
+<div style="text-align: right">
     <p>Total : ${facture.montant} €HT</p>
 </div>
 
