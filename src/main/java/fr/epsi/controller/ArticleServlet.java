@@ -1,7 +1,7 @@
 package fr.epsi.controller;
 
-import fr.epsi.entite.Client;
-import fr.epsi.service.IClientService;
+import fr.epsi.entite.Article;
+import fr.epsi.service.IArticleService;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -12,17 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ClientServlet", value = "/clients")
+@WebServlet(name = "ArticleServlet", value = "/articles")
 public class ArticleServlet extends HttpServlet {
 
     @EJB
-    private IClientService clientService;
+    private IArticleService articleService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Client> clients = this.clientService.findAllClients();
-        request.setAttribute("clients", clients);
+        List<Article> articles = this.articleService.findAllArticles();
+        request.setAttribute("articles", articles);
 
-        this.getServletContext().getRequestDispatcher("/pages/clients.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/pages/articles.jsp").forward(request, response);
     }
 }

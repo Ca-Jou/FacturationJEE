@@ -7,6 +7,6 @@
 </head>
 <body>
 <h1>C'est dans la boîte !</h1>
-<a href=""><button>Revenir à l'accueil</button></a>
+<a href="/"><button>Revenir à l'accueil</button></a>
 </body>
 </html>

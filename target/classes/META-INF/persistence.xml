@@ -8,6 +8,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
     <persistence-unit name="pezzzPU">
         <jta-data-source>java:/PezzzDS</jta-data-source>
         <class>fr.epsi.entite.Client</class>
+        <class>fr.epsi.entite.Article</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
