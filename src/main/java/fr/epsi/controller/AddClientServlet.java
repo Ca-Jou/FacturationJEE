@@ -1,7 +1,6 @@
 package fr.epsi.controller;
 
 import fr.epsi.dto.ClientDto;
-import fr.epsi.entite.Client;
 import fr.epsi.service.IClientService;
 
 import javax.ejb.EJB;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "AddClientServlet", value = "/nouveauclient")
 public class AddClientServlet extends HttpServlet {

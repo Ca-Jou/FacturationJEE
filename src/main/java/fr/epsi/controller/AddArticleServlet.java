@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "AddClientServlet", value = "/nouvelarticle")
+@WebServlet(name = "AddArticleServlet", value = "/nouvelarticle")
 public class AddArticleServlet extends HttpServlet {
 
     @EJB
